@@ -26,3 +26,5 @@ function install_all() {
     install_pip
     install_git
 }
+
+install_all
