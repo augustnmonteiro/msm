@@ -26,6 +26,15 @@ sudo msm install <skill_repository>
 sudo msm install https://github.com/augustnmonteiro/mycroft-youtube.git
 ```
 
+## License
+
+MSM is released under the MIT license. See [LICENSE][license-file] for details.
+
+## More
+
+MSM is a work in progress, feel free to improve it.
+
 
 [skills-repository]: https://github.com/MycroftAI/mycroft-skills
 [mycroft-website]: https://mycroft.ai
+[license-file]: ./LICENSE
