@@ -32,12 +32,14 @@ function msm_install() {
     source $mycroft_virtualenv
 
     echo "Installing OS requirements"
-    ./requirements.sh
+    source requirements.sh
 
     if [ -f "requirements.txt" ]; then
         echo "Installing libraries requirements"
         pip install -r requirements.txt
     fi
+
+    cd $current
 
     echo -e "\nPlease restart your Mycroft :D\n"
 }
