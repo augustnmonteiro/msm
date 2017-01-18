@@ -1,15 +1,40 @@
-# MSM Mycroft Skill Manager
+# MSM - Mycroft Skill Manager
 
-Is a skill installer for mycroft : D
+**Idea**: Create a skill manager to install and remove skills.
 
-# Install
-`sudo ./install.sh`
+This project is a [skill][skills-repository] installer for [Mycroft][mycroft-website].
 
-# How to install a skill
-`sudo msm install <git_repo>`
+## Installation
 
-# Example
-`sudo msm install https://github.com/augustnmonteiro/mycroft-youtube.git`
+To install MSM
 
-# Idea
-Create a skill manager using python to install and remove skills
+```bash
+sudo source install.sh
+```
+
+## Usage
+
+Install a skill
+
+```bash
+sudo msm install <skill_repository>
+```
+
+**Example**
+
+```bash
+sudo msm install https://github.com/augustnmonteiro/mycroft-youtube.git
+```
+
+## License
+
+MSM is released under the MIT license. See [LICENSE][license-file] for details.
+
+## More
+
+MSM is a work in progress, feel free to improve it.
+
+
+[skills-repository]: https://github.com/MycroftAI/mycroft-skills
+[mycroft-website]: https://mycroft.ai
+[license-file]: ./LICENSE
