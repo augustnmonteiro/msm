@@ -2,7 +2,6 @@
 # @author Augusto Monteiro
 
 mycroft_skill_folder="/opt/mycroft/skills"
-mycroft_virtualenv=~/.virtualenvs/mycroft/bin/activate
 
 echo "#######  Mycroft Skill Manager #######"
 
@@ -17,22 +16,22 @@ function install() {
 	current=`pwd`
 	git_name=`echo "$2" | sed 's/.*\///'`
 	name=`echo "$git_name" | sed 's/.git//'`
-        cd $mycroft_skill_folder
-	echo "Cloning repository"
-        git clone $2 >> /dev/null
-        cd $name
-	echo "Sourcing env"
-        source	$mycroft_virtualenv 
-        if [ -f "requirements.sh" ]; then
-		echo "Installing os requirements"
-        	./requirements.sh
-        fi
-        if [ -f "requirements.txt" ]; then
-		echo "Installing libraries requirements"
-        	pip install -r requirements.txt
-        fi 
-        echo "Please restart you mycroft : D"
-		
+    cd $mycroft_skill_folder
+    echo "Cloning repository"
+    git clone $2 >> /dev/null
+    cd $name
+    if [ -f "requirements.sh" ]; then
+        echo "Installing os requirements"
+        ./requirements.sh
+    fi
+    if [ -f "requirements.txt" ]; then
+        echo "Installing libraries requirements"
+        pip install -r requirements.txt
+    fi
+    sudo service mycroft-skills restart
+    echo "Skill installed!"
+    say "Skill $name installed!"
+
 }
 
 # params: test command, apt name
