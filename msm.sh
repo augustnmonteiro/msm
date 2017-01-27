@@ -6,16 +6,16 @@ mycroft_skill_folder="/opt/mycroft/skills"
 echo "#######  Mycroft Skill Manager #######"
 
 function help() {
-	echo ""
-	echo "1) help to see this menu"
-	echo "2) install <repository> to add a new skill"
-	echo ""
+    echo ""
+    echo "1) help to see this menu"
+    echo "2) install <repository> to add a new skill"
+    echo ""
 }
 
 function install() {
-	current=`pwd`
-	git_name=`echo "$2" | sed 's/.*\///'`
-	name=`echo "$git_name" | sed 's/.git//'`
+    current=`pwd`
+    git_name=`echo "$2" | sed 's/.*\///'`
+    name=`echo "$git_name" | sed 's/.git//'`
     cd $mycroft_skill_folder
     echo "Cloning repository"
     git clone $2 >> /dev/null
@@ -56,7 +56,7 @@ if [ -z $MSM_DEPENDENCIES ]; then
 fi
 
 if [ "$1" = "install" ]; then
-  install $*
+    install $*
 else
-  help
+    help
 fi
