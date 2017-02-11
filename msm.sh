@@ -35,6 +35,10 @@ function install() {
 		
 }
 
+function list() {
+	curl -s "https://raw.githubusercontent.com/MycroftAI/mycroft-skills/master/.gitmodules" | grep 'submodule "' | sed 's/\[submodule "//g'| sed 's/"\]//g'
+}
+
 # params: test command, apt name
 function test_and_install() {
     eval $1 > /dev/null 2>&1
@@ -58,6 +62,9 @@ fi
 
 if [ "$1" = "install" ]; then
   install $*
+elif [ "$1" = "list" ]; then
+  echo -e "Searching...\n"
+  list 
 else
   help
 fi
